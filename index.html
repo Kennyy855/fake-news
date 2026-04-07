@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NewsCheck — Fake News Detector</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M9 4H5a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 3l2 2-7 7H8v-2l7-7z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-name">NewsCheck</span>
+      </div>
+      <div class="nav-right">
+        <span class="model-pill" id="modelPill">{{ model_name }}</span>
+        <span class="ai-pill">ML-powered</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Page ── -->
+  <main class="page">
+
+    <!-- Form card -->
+    <div class="card" id="formCard">
+
+      <div class="card-head">
+        <h1 class="card-title">Fake news detection</h1>
+        <p class="card-sub">Paste a headline or article to verify its credibility using AI</p>
+      </div>
+
+      <div class="card-body">
+
+        <!-- Textarea -->
+        <div class="field">
+          <label class="field-label">Article / headline <span class="req">*</span></label>
+          <textarea id="articleInput" maxlength="1000"
+            placeholder="Paste the news article or headline you want to verify here..."></textarea>
+          <div class="char-row">
+            <span class="char-txt" id="charTxt">0 / 1000</span>
+          </div>
+        </div>
+
+        <!-- Source -->
+        <div class="field">
+          <label class="field-label">Source <span class="opt">(optional)</span></label>
+          <input class="text-input" type="text" id="sourceInput"
+            placeholder="e.g. BBC News, Facebook post, WhatsApp message..."/>
+        </div>
+
+        <!-- Quick examples -->
+        <div class="field">
+          <label class="field-label">Quick examples</label>
+          <div class="tags-row" id="tagsRow">
+            <button class="tag" onclick="loadEx(0, this)">Bleach cures disease</button>
+            <button class="tag" onclick="loadEx(1, this)">Fed raises rates</button>
+            <button class="tag" onclick="loadEx(2, this)">Moon landing faked</button>
+            <button class="tag" onclick="loadEx(3, this)">New EV record</button>
+            <button class="tag" onclick="loadEx(4, this)">5G mind control</button>
+            <button class="tag" onclick="loadEx(5, this)">Climate study</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Error message -->
+        <div class="error-box" id="errorBox"></div>
+
+        <!-- Buttons -->
+        <button class="btn-primary" id="submitBtn" onclick="runCheck()">
+          <span id="btnTxt">Check now</span>
+        </button>
+        <button class="btn-ghost" onclick="resetForm()">Reset form</button>
+
+      </div>
+    </div>
+
+    <!-- Result card (hidden until result arrives) -->
+    <div class="result-card" id="resultCard">
+
+      <div class="result-top">
+        <div class="result-icon" id="resultIcon">
+          <svg viewBox="0 0 24 24" fill="none" id="resultSvg" width="26" height="26"></svg>
+        </div>
+        <div class="result-info">
+          <div class="result-label" id="resultLabel"></div>
+          <div class="result-desc"  id="resultDesc"></div>
+        </div>
+        <div class="result-conf">
+          <div class="conf-num" id="confNum"></div>
+          <div class="conf-sub">confidence</div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="bar-bg">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-val" id="statWords">—</div>
+          <div class="stat-key">words</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="statSents">—</div>
+          <div class="stat-key">sentences</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="statTone">—</div>
+          <div class="stat-key">tone</div>
+        </div>
+      </div>
+
+      <!-- Signals -->
+      <div class="signals-box">
+        <div class="signals-title">Detection signals</div>
+        <div id="signalList"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    NewsCheck &mdash; Powered by <strong>{{ model_name }}</strong> &bull; ML Fake News Detection System
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
