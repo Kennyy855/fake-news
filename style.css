@@ -1,16 +1,9 @@
 /* ============================================================
    style.css — NewsCheck Fake News Detector
-   Modern light theme
    ============================================================ */
 
-/* ── Reset ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── Base ── */
 body {
   background: #f0f2fa;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -20,9 +13,7 @@ body {
   flex-direction: column;
 }
 
-/* ────────────────────────────────────────
-   NAVBAR
-──────────────────────────────────────── */
+/* ── Navbar ── */
 .navbar {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
@@ -90,9 +81,7 @@ body {
   border-radius: 20px;
 }
 
-/* ────────────────────────────────────────
-   PAGE LAYOUT
-──────────────────────────────────────── */
+/* ── Page ── */
 .page {
   flex: 1;
   max-width: 680px;
@@ -104,9 +93,7 @@ body {
   gap: 16px;
 }
 
-/* ────────────────────────────────────────
-   FORM CARD
-──────────────────────────────────────── */
+/* ── Form Card ── */
 .card {
   background: #ffffff;
   border-radius: 20px;
@@ -135,12 +122,8 @@ body {
   padding: 24px 26px;
 }
 
-/* ────────────────────────────────────────
-   FORM FIELDS
-──────────────────────────────────────── */
-.field {
-  margin-bottom: 20px;
-}
+/* ── Fields ── */
+.field { margin-bottom: 20px; }
 
 .field-label {
   display: block;
@@ -152,10 +135,7 @@ body {
   margin-bottom: 8px;
 }
 
-.req {
-  color: #ef4444;
-  margin-left: 2px;
-}
+.req { color: #ef4444; margin-left: 2px; }
 
 .opt {
   font-weight: 400;
@@ -165,7 +145,6 @@ body {
   font-size: 11px;
 }
 
-/* Textarea */
 textarea {
   width: 100%;
   background: #f9fafb;
@@ -182,28 +161,12 @@ textarea {
   transition: border-color 0.2s, background 0.2s;
 }
 
-textarea:focus {
-  border-color: #6366f1;
-  background: #ffffff;
-}
+textarea:focus { border-color: #6366f1; background: #ffffff; }
+textarea::placeholder { color: #d1d5db; }
 
-textarea::placeholder {
-  color: #d1d5db;
-}
+.char-row { display: flex; justify-content: flex-end; margin-top: 6px; }
+.char-txt  { font-size: 11px; color: #d1d5db; }
 
-/* Char counter */
-.char-row {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 6px;
-}
-
-.char-txt {
-  font-size: 11px;
-  color: #d1d5db;
-}
-
-/* Text input */
 .text-input {
   width: 100%;
   background: #f9fafb;
@@ -217,23 +180,11 @@ textarea::placeholder {
   transition: border-color 0.2s, background 0.2s;
 }
 
-.text-input:focus {
-  border-color: #6366f1;
-  background: #ffffff;
-}
+.text-input:focus { border-color: #6366f1; background: #ffffff; }
+.text-input::placeholder { color: #d1d5db; }
 
-.text-input::placeholder {
-  color: #d1d5db;
-}
-
-/* ────────────────────────────────────────
-   EXAMPLE TAGS
-──────────────────────────────────────── */
-.tags-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
+/* ── Tags ── */
+.tags-row { display: flex; flex-wrap: wrap; gap: 7px; }
 
 .tag {
   background: #f9fafb;
@@ -247,30 +198,16 @@ textarea::placeholder {
   transition: all 0.15s;
 }
 
-.tag:hover {
+.tag:hover, .tag.active {
   border-color: #6366f1;
   color: #6366f1;
   background: #eef2ff;
 }
 
-.tag.active {
-  border-color: #6366f1;
-  color: #6366f1;
-  background: #eef2ff;
-}
+/* ── Divider ── */
+.divider { height: 1px; background: #f3f4f6; margin: 4px 0 20px; }
 
-/* ────────────────────────────────────────
-   DIVIDER
-──────────────────────────────────────── */
-.divider {
-  height: 1px;
-  background: #f3f4f6;
-  margin: 4px 0 20px;
-}
-
-/* ────────────────────────────────────────
-   ERROR BOX
-──────────────────────────────────────── */
+/* ── Error box ── */
 .error-box {
   display: none;
   background: #fef2f2;
@@ -282,9 +219,7 @@ textarea::placeholder {
   margin-bottom: 14px;
 }
 
-/* ────────────────────────────────────────
-   BUTTONS
-──────────────────────────────────────── */
+/* ── Buttons ── */
 .btn-primary {
   width: 100%;
   background: #6366f1;
@@ -301,23 +236,12 @@ textarea::placeholder {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  letter-spacing: 0.1px;
   margin-bottom: 10px;
 }
 
-.btn-primary:hover {
-  background: #4f46e5;
-}
-
-.btn-primary:active {
-  transform: scale(0.98);
-}
-
-.btn-primary:disabled {
-  background: #e0e7ff;
-  color: #a5b4fc;
-  cursor: not-allowed;
-}
+.btn-primary:hover    { background: #4f46e5; }
+.btn-primary:active   { transform: scale(0.98); }
+.btn-primary:disabled { background: #e0e7ff; color: #a5b4fc; cursor: not-allowed; }
 
 .btn-ghost {
   width: 100%;
@@ -332,31 +256,22 @@ textarea::placeholder {
   transition: all 0.15s;
 }
 
-.btn-ghost:hover {
-  border-color: #c7d2fe;
-  color: #6366f1;
-}
+.btn-ghost:hover { border-color: #c7d2fe; color: #6366f1; }
 
-/* ────────────────────────────────────────
-   SPINNER
-──────────────────────────────────────── */
+/* ── Spinner ── */
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border: 2.5px solid rgba(255,255,255,0.3);
   border-top-color: #ffffff;
   border-radius: 50%;
   animation: spin 0.65s linear infinite;
   flex-shrink: 0;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* ────────────────────────────────────────
-   RESULT CARD
-──────────────────────────────────────── */
+/* ── Result Card ── */
 .result-card {
   display: none;
   border-radius: 20px;
@@ -366,17 +281,9 @@ textarea::placeholder {
   transition: border-color 0.3s, background 0.3s;
 }
 
-.result-card.is-fake {
-  background: #fff5f5;
-  border-color: #fecaca;
-}
+.result-card.is-fake { background: #fff5f5; border-color: #fecaca; }
+.result-card.is-real { background: #f0fdf4; border-color: #bbf7d0; }
 
-.result-card.is-real {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
-}
-
-/* Top row */
 .result-top {
   display: flex;
   align-items: center;
@@ -397,9 +304,7 @@ textarea::placeholder {
 .result-icon.is-fake { background: #fee2e2; }
 .result-icon.is-real { background: #dcfce7; }
 
-.result-info {
-  flex: 1;
-}
+.result-info { flex: 1; }
 
 .result-label {
   font-size: 20px;
@@ -410,15 +315,8 @@ textarea::placeholder {
 .result-label.is-fake { color: #dc2626; }
 .result-label.is-real { color: #16a34a; }
 
-.result-desc {
-  font-size: 12px;
-  color: #9ca3af;
-}
-
-.result-conf {
-  text-align: right;
-  flex-shrink: 0;
-}
+.result-desc  { font-size: 12px; color: #9ca3af; }
+.result-conf  { text-align: right; flex-shrink: 0; }
 
 .conf-num {
   font-size: 30px;
@@ -428,14 +326,9 @@ textarea::placeholder {
 
 .conf-num.is-fake { color: #dc2626; }
 .conf-num.is-real { color: #16a34a; }
+.conf-sub { font-size: 11px; color: #9ca3af; margin-top: 3px; }
 
-.conf-sub {
-  font-size: 11px;
-  color: #9ca3af;
-  margin-top: 3px;
-}
-
-/* Progress bar */
+/* ── Progress Bar ── */
 .bar-bg {
   background: #e5e7eb;
   border-radius: 4px;
@@ -454,7 +347,7 @@ textarea::placeholder {
 .bar-fill.is-fake { background: #ef4444; }
 .bar-fill.is-real { background: #22c55e; }
 
-/* Stats grid */
+/* ── Stats ── */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -484,12 +377,13 @@ textarea::placeholder {
   letter-spacing: 0.5px;
 }
 
-/* Signals */
+/* ── Signals ── */
 .signals-box {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 14px 16px;
+  margin-bottom: 14px;
 }
 
 .signals-title {
@@ -509,26 +403,13 @@ textarea::placeholder {
   border-bottom: 1px solid #f3f4f6;
 }
 
-.signal-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
+.signal-item:last-child { border-bottom: none; padding-bottom: 0; }
 
-.signal-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
+.signal-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .signal-dot.bad { background: #ef4444; }
 .signal-dot.ok  { background: #22c55e; }
 
-.signal-text {
-  font-size: 13px;
-  color: #6b7280;
-  flex: 1;
-}
+.signal-text { font-size: 13px; color: #6b7280; flex: 1; }
 
 .signal-pill {
   font-size: 10px;
@@ -541,9 +422,57 @@ textarea::placeholder {
 .signal-pill.bad { background: #fee2e2; color: #dc2626; }
 .signal-pill.ok  { background: #dcfce7; color: #16a34a; }
 
-/* ────────────────────────────────────────
-   FOOTER
-──────────────────────────────────────── */
+/* ── Risk Meter ── */
+.risk-meter {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.risk-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.risk-txt {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.risk-val {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.risk-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.risk-fill {
+  height: 100%;
+  border-radius: 4px;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.risk-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #d1d5db;
+}
+
+/* ── Footer ── */
 .footer {
   text-align: center;
   padding: 20px 16px;
@@ -551,18 +480,14 @@ textarea::placeholder {
   color: #c4c9db;
 }
 
-.footer strong {
-  color: #a5b4fc;
-  font-weight: 500;
-}
+.footer strong { color: #a5b4fc; font-weight: 500; }
 
-/* ────────────────────────────────────────
-   RESPONSIVE
-──────────────────────────────────────── */
+/* ── Responsive ── */
 @media (max-width: 480px) {
-  .card-body  { padding: 18px; }
-  .card-head  { padding: 16px 18px; }
-  .result-top { flex-wrap: wrap; }
+  .card-body   { padding: 18px; }
+  .card-head   { padding: 16px 18px; }
+  .result-top  { flex-wrap: wrap; }
   .result-conf { width: 100%; text-align: left; }
-  .conf-num { font-size: 24px; }
+  .conf-num    { font-size: 24px; }
+  .stats-grid  { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

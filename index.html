@@ -21,7 +21,7 @@
         <span class="nav-name">NewsCheck</span>
       </div>
       <div class="nav-right">
-        <span class="model-pill" id="modelPill">ML Model</span>
+        <span class="model-pill">Naive Bayes</span>
         <span class="ai-pill">ML-powered</span>
       </div>
     </div>
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <!-- Result card (hidden until result arrives) -->
+    <!-- Result card -->
     <div class="result-card" id="resultCard">
 
       <div class="result-top">
@@ -128,12 +128,28 @@
         <div id="signalList"></div>
       </div>
 
+      <!-- Risk meter -->
+      <div class="risk-meter">
+        <div class="risk-label-row">
+          <span class="risk-txt">Risk level</span>
+          <span class="risk-val" id="riskVal"></span>
+        </div>
+        <div class="risk-track">
+          <div class="risk-fill" id="riskFill"></div>
+        </div>
+        <div class="risk-scale">
+          <span>Low</span>
+          <span>Medium</span>
+          <span>High</span>
+        </div>
+      </div>
+
     </div>
 
   </main>
 
   <footer class="footer">
-    NewsCheck &mdash; Powered by <strong>{{ model_name }}</strong> &bull; ML Fake News Detection System
+    NewsCheck &mdash; Powered by <strong>Naive Bayes + TF-IDF</strong> &bull; ML Fake News Detection
   </footer>
 
   <script src="main.js"></script>
