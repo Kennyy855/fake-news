@@ -169,6 +169,6 @@ def predict_route():
 if __name__ == "__main__":
     print("\n" + "=" * 48)
     print("  NewsCheck is running!")
-    print("  Open: http://localhost:5500")
+    print("  Open: http://localhost:5000")
     print("=" * 48 + "\n")
     app.run(debug=True, port=5500)
